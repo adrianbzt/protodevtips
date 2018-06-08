@@ -9,7 +9,7 @@ class Playlist extends Component {
 
     render() {
         const defaultTextColor = '#fff';
-        let styleComponent = {"width" : "214px", "height": "350px", "backgroundColor": "#ddd", "alignContent": "spaceAround", "margin": "5px", "color": defaultTextColor};
+        let styleComponent = {"width" : "1fr", "height": "auto", "backgroundColor": "#ddd", "alignContent": "spaceAround", "margin": "5px", "color": defaultTextColor};
         let imgComponent = {"width" : "214px", "height": "214px", "borderRadius":"100px"};
 
         return(

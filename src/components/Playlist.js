@@ -10,7 +10,7 @@ class Playlist extends Component {
     render() {
         const defaultTextColor = 'black';
         let styleComponent = {
-            "width" : "1fr", 
+            "width" : "2fr", 
             "height": "auto",
             "backgroundColor": "#ddd", 
             "alignContent": "spaceAround", 
@@ -41,7 +41,7 @@ class Playlist extends Component {
     getSongs() {
         
         const songList = this.props.songs.map((obj) =>
-            <li>{obj}</li>
+            <li key={obj}>{obj}</li>
         );
 
         return songList;

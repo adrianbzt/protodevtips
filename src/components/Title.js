@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 
 class Title extends Component {
+
+    constructor(props) {
+        super();
+        this.props = props;
+      }
+
     render() {
         return (
-            <h1>Spotify Title</h1>
+            <h1>{this.props.userName}'s Playlists</h1>
         );
     }
 }

@@ -5,12 +5,17 @@ import Summary from './components/Summary'
 import Playlist from './components/Playlist'
 import Filter from './components/Filter';
 
+let fakeServerData = {
+  user: {
+    name: 'Adrian'
+  }
+}
 class App extends Component {
   render() {
-    let displayComponent = {"display": "flex", "flexDirection": "row", "flexWrap": "wrap", "justifyContent": "spaceAround"};
+    let displayComponent = {"display": "flex", "flexDirection": "row", "flexWrap": "wrap", "justifyContent": "spaceAround", "alingContent":"center"};
     return (
       <div className="App">
-      <Title/>
+      <Title userName={fakeServerData.user.name}/>
       <Filter/>
       <Summary/>
 

@@ -85,12 +85,12 @@ class App extends Component {
   }
 
   getDurationHours() {
-    const reducer = (accumulator, currentValue) => accumulator + currentValue;
-    const playHours = fakeServerData.user.playlists.filter((obj) => obj.durationMinutes);
+    const reducer = (accumulator, currentValue) => accumulator + currentValue.durationMinutes;
+    let playMinutes = fakeServerData.user.playlists.reduce(reducer, 0);
 
-    
+    let playHours = Math.round(playMinutes/60);
 
-    console.log(playHours)
+    return playHours;
   }  
 }
 

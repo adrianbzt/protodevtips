@@ -12,7 +12,7 @@ class Summary extends Component {
         return(
             <div style={displayContent}>
                 <p> {this.props.playlistsNo} playlists </p>
-                <p> 465 hours </p>
+                <p> {this.props.durationHours} hours </p>
             </div>
         );
     }

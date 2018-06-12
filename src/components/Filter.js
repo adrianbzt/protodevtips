@@ -4,7 +4,7 @@ class Filter extends Component {
     render() {
         return(
             <div>
-                <input type="text" />
+                <input type="text" onKeyDown={event => this.props.onTextChange(event.target.value)}/>
             </div>
         );
     }

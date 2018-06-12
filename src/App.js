@@ -55,16 +55,26 @@ let fakeServerData = {
   }
 }
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      filterString: '',
+    }
+  }
   render() {
     let displayComponent = {"display": "flex", "flexDirection": "row", "flexWrap": "wrap", "justifyContent": "spaceAround", "alingContent":"center"};
     return (
       <div className="App">
-      <Title userName={fakeServerData.user.name}/>
-      <Filter/>
+       {/* we add the Component only if the name is set */}
+      {
+        fakeServerData.user.name &&
+        <Title userName={fakeServerData.user.name}/>
+      }
+      
+      <Filter onTextChange={text => this.setState({filterString: text})}/>
+
       <Summary playlistsNo={this.getPlayListsNumber()} durationHours={this.getDurationHours()}/>
-
         <div style={displayComponent}>
-
           {
             this.getPlayLists()
           }
@@ -74,7 +84,7 @@ class App extends Component {
   }
 
   getPlayLists() {
-      const playLists = fakeServerData.user.playlists.map((obj) =>
+      const playLists = fakeServerData.user.playlists.filter(obj => obj.name.toLocaleLowerCase().includes(this.state.filterString.toLocaleLowerCase())).map((obj) =>
         <Playlist key={obj.id} playListName={obj.name} image={obj.image} songs={obj.songs}/>
       );
       return playLists;

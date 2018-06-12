@@ -7,6 +7,12 @@ class Summary extends Component {
         this.props = props;
     }
 
+    componentDidMount() {
+        setTimeout(() => {
+            console.log('test')
+        }, 5000);
+    }
+
     render() {
         let displayContent = { "display": "flex", "justifyContent":"space-evenly"};
         return(

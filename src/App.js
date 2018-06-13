@@ -91,12 +91,12 @@ class App extends Component {
   }
 
   getPlayListsNumber() {
-    return fakeServerData.user.playlists.length;
+    return fakeServerData.user.playlists.filter(obj => obj.name.toLocaleLowerCase().includes(this.state.filterString.toLocaleLowerCase())).length;
   }
 
   getDurationHours() {
     const reducer = (accumulator, currentValue) => accumulator + currentValue.durationMinutes;
-    let playMinutes = fakeServerData.user.playlists.reduce(reducer, 0);
+    let playMinutes = fakeServerData.user.playlists.filter(obj => obj.name.toLocaleLowerCase().includes(this.state.filterString.toLocaleLowerCase())).reduce(reducer, 0);
 
     let playHours = Math.round(playMinutes/60);
 

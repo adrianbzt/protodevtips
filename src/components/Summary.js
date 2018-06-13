@@ -8,9 +8,6 @@ class Summary extends Component {
     }
 
     componentDidMount() {
-        setTimeout(() => {
-            console.log('test')
-        }, 5000);
     }
 
     render() {
